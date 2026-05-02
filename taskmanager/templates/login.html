@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login / Signup</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 320px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+        }
+
+        .input-field {
+            width: 90%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            transition: 0.3s;
+        }
+
+        .input-field:focus {
+            border-color: #4facfe;
+            outline: none;
+            box-shadow: 0 0 5px #4facfe;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #4facfe;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background-color: #007bff;
+        }
+
+        .toggle {
+            margin-top: 15px;
+            color: #4facfe;
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+
+    <script>
+        function showSignup() {
+            document.getElementById("loginForm").classList.add("hidden");
+            document.getElementById("signupForm").classList.remove("hidden");
+        }
+
+        function showLogin() {
+            document.getElementById("signupForm").classList.add("hidden");
+            document.getElementById("loginForm").classList.remove("hidden");
+        }
+    </script>
+
+</head>
+
+<body>
+
+<div class="box">
+
+    <!-- LOGIN FORM -->
+    <div id="loginForm">
+        <h2>Login</h2>
+
+        <form method="POST" action="/login/">
+            {% csrf_token %}
+            <input class="input-field" type="text" name="username" placeholder="Username">
+            <input class="input-field" type="password" name="password" placeholder="Password">
+            <button class="btn">Login</button>
+        </form>
+
+        <p class="toggle" onclick="showSignup()">Create Account</p>
+    </div>
+
+    <!-- SIGNUP FORM -->
+    <div id="signupForm" class="hidden">
+        <h2>Signup</h2>
+
+        <form method="POST" action="/signup/">
+            {% csrf_token %}
+            <input class="input-field" type="text" name="username" placeholder="Username">
+            <input class="input-field" type="password" name="password" placeholder="Password">
+            <button class="btn">Signup</button>
+        </form>
+
+        <p class="toggle" onclick="showLogin()">Already have an account?</p>
+    </div>
+
+</div>
+
+</body>
+</html>
+
+

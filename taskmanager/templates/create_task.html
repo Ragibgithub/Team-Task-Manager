@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h3>Create Task</h3>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <input type="text" name="title" placeholder="Title"><br><br>
+
+    <textarea name="description" placeholder="Description"></textarea><br><br>
+
+    <select name="project">
+        {% for project in projects %}
+            <option value="{{project.id}}">{{project.name}}</option>
+        {% endfor %}
+    </select><br><br>
+
+    <button type="submit">Create Task</button>
+</form>
+
+{% endblock %}
+

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Manager</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 20px;
+        }
+        a {
+            padding: 5px 10px;
+            background: blue;
+            color: white;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+<p>Role: 
+{% if user.is_superuser %}
+    Admin
+{% else %}
+    Member
+{% endif %}
+</p>
+
+
+<h2>Team Task Manager</h2>
+
+<a href="/">Dashboard</a>
+<a href="/create-task/">Create Task</a>
+
+<hr>
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>
+
