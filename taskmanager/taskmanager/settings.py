@@ -68,8 +68,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'taskmanager.wsgi.application'
-
+WSGI_APPLICATION = 'taskmanager.taskmanager.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
